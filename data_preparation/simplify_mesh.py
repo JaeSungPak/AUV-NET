@@ -54,10 +54,7 @@ for i in range(len(obj_names)):
         continue
     
     ### normalize mesh into unit cube
-    raw_obj_name = target_dir + obj_names[i] + "/model.obj"
-    normalized_obj_name = target_dir + obj_names[i] + "/model_normalized.obj"
-    print(i,len(obj_names),raw_obj_name)
-    mesh_utilities.normalize_obj(raw_obj_name,normalized_obj_name)
+    normalized_obj_name = target_dir + obj_names[i] + "/models/model_normalized.obj"
 
     ### obtain 1024^3 voxels using binvox
 
@@ -65,7 +62,7 @@ for i in range(len(obj_names)):
     os.system(command)
 
     #rename
-    old_binvox_name = target_dir + obj_names[i] + "/model_normalized.binvox"
+    old_binvox_name = target_dir + obj_names[i] + "/model_normalized.surface.binvox"
     binvox_name = target_dir + obj_names[i] + "/model.binvox"
     command = "mv "+ old_binvox_name + " " + binvox_name
     os.system(command)
