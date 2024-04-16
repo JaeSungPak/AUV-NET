@@ -62,7 +62,7 @@ for i in range(len(obj_names)):
     os.system(command)
 
     #rename
-    old_binvox_name = target_dir + obj_names[i] + "/models/model_normalized.surface.binvox"
+    old_binvox_name = target_dir + obj_names[i] + "/models/model_normalized.solid.binvox"
     binvox_name = target_dir + obj_names[i] + "/models/model.binvox"
     command = "mv "+ old_binvox_name + " " + binvox_name
     os.system(command)
