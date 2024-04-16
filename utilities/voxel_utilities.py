@@ -70,7 +70,7 @@ def depth_fusion(raw_voxels):
 
 
 def alpha_hull(raw_voxels):
-    voxel_size = 1024
+    voxel_size = 128
     cube_sizex = 32
     cube_sizey = 32
     cube_sizez = 80
