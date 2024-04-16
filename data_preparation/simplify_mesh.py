@@ -71,6 +71,7 @@ for i in range(len(obj_names)):
 
     raw_voxels = voxel_utilities.read_voxels(binvox_name,fix_coords=False)
     voxel_utilities.depth_fusion(raw_voxels)
+    print(raw_voxels)
     state_ctr = voxel_utilities.alpha_hull(raw_voxels)
     
     simplified_binvox_name = target_dir + obj_names[i] + "/model_coarse.binvox"
