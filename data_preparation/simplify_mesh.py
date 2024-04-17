@@ -69,12 +69,10 @@ for i in range(len(obj_names)):
     
     ### obtain simplified 1024^3 voxels
 
-    # raw_voxels = voxel_utilities.read_voxels(binvox_name,fix_coords=False)
-    # voxel_utilities.depth_fusion(raw_voxels)
-    # state_ctr = voxel_utilities.alpha_hull(raw_voxels)
+    raw_voxels = voxel_utilities.read_voxels(binvox_name,fix_coords=False)
+    voxel_utilities.depth_fusion(raw_voxels)
+    state_ctr = voxel_utilities.alpha_hull(raw_voxels)
     
-    state_ctr = voxel_utilities.read_voxels(binvox_name,fix_coords=False)
-
     simplified_binvox_name = target_dir + obj_names[i] + "/model_coarse.binvox"
     voxel_utilities.write(simplified_binvox_name, [1024,1024,1024], state_ctr)
     del state_ctr
@@ -103,3 +101,6 @@ for i in range(len(obj_names)):
     poses_file_name = target_dir + obj_names[i] + "/rendering_poses.txt"
     voxel_utilities.get_occlusion_cut(simplified_voxels,poses_file_name)
     del simplified_voxels
+
+
+
