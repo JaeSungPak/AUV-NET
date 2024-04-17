@@ -58,7 +58,7 @@ for i in range(len(obj_names)):
 
     ### obtain 1024^3 voxels using binvox
 
-    command = "./binvox -bb -0.5 -0.5 -0.5 0.5 0.5 0.5 -d 1024 -e "+normalized_obj_name
+    command = "./binvox -bb -0.5 -0.5 -0.5 0.5 0.5 0.5 -d 128 -e "+normalized_obj_name
     os.system(command)
 
     #rename
@@ -90,7 +90,7 @@ for i in range(len(obj_names)):
     mesh = mesh.simplify_quadric_decimation(target_number_of_triangles=20000)
 
     vertices = np.asarray(mesh.vertices)
-    vertices = (vertices-0.5)/1024 - 0.5
+    vertices = (vertices-0.5)/128 - 0.5
     mesh.vertices = o3d.utility.Vector3dVector(vertices)
 
     simplified_obj_name = target_dir + obj_names[i] + "/model_simplified.obj"
