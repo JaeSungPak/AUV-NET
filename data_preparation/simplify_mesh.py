@@ -74,12 +74,12 @@ for i in range(len(obj_names)):
     state_ctr = voxel_utilities.alpha_hull(raw_voxels)
     
     simplified_binvox_name = target_dir + obj_names[i] + "/model_coarse.binvox"
-    voxel_utilities.write(simplified_binvox_name, [1024,1024,1024], state_ctr)
+    voxel_utilities.write(simplified_binvox_name, [128,128,128], state_ctr)
     del state_ctr
     
     ### obtain simplified mesh and save as obj file
 
-    simplified_voxels_padded = np.zeros([1024+2,1024+2,1024+2], np.uint8)
+    simplified_voxels_padded = np.zeros([128+2,128+2,128+2], np.uint8)
     simplified_voxels = voxel_utilities.read_voxels(simplified_binvox_name)
     simplified_voxels_padded[1:-1,1:-1,1:-1] = simplified_voxels
     vertices, triangles = mcubes.marching_cubes(simplified_voxels_padded, 0.5)
