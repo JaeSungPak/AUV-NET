@@ -78,6 +78,7 @@ def alpha_hull(raw_voxels):
 
     tmp_voxel1 = np.zeros([voxel_size+cube_sizex*2,voxel_size+cube_sizey*2,voxel_size+cube_sizez*2], np.uint8)
     tmp_accu1 = np.zeros([voxel_size+cube_sizex*2,voxel_size+cube_sizey*2,voxel_size+cube_sizez*2], np.int32)
+    print(cube_sizex, raw_voxels.shape)
     tmp_voxel1[cube_sizex:-cube_sizex,cube_sizey:-cube_sizey,cube_sizez:-cube_sizez] = raw_voxels
     cutils.cube_alpha_hull(tmp_voxel1,tmp_accu1,cube_sizex,cube_sizey,cube_sizez)
     alpha_hull = np.ascontiguousarray(tmp_voxel1[cube_sizex:-cube_sizex,cube_sizey:-cube_sizey,cube_sizez:-cube_sizez])
